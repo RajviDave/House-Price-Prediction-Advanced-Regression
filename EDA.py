@@ -23,3 +23,21 @@ for features in dataset:
 #print(dataset['LotFrontage'].isnull().sum())
 for features in null_features:
     print(np.round(dataset[features].isnull().mean(),3),'% missing values')
+
+numerical_values=[]
+
+for  feature in dataset:
+    if dataset[feature].dtype!='str':
+        numerical_values.append(feature)
+
+print(numerical_values)
+print(len(numerical_values))
+
+categorical_value=[]
+
+for feature in dataset:
+    if dataset[feature].dtype=='str':
+        categorical_value.append(feature)
+
+print(categorical_value)
+print(len(categorical_value))
