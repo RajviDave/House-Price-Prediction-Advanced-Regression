@@ -1,4 +1,5 @@
 import pandas as pd
+import numpy as np
 
 dataset=pd.read_csv("Dataset/train.csv")
 
@@ -20,5 +21,5 @@ for features in dataset:
         null_features.append(features)
     
 #print(dataset['LotFrontage'].isnull().sum())
-
-print(null_features)
+for features in null_features:
+    print(np.round(dataset[features].isnull().mean(),3),'% missing values')
