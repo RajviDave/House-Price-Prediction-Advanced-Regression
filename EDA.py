@@ -8,13 +8,17 @@ dataset=pd.read_csv("Dataset/train.csv")
 # missing=dataset.isnull()
 # print(missing)
 
-print(dataset['HouseStyle'].isnull()[:25])
-num=[1,2,3,4,5,' ']
-for x in dataset:
-    if x.isnull():
-        print('it has missing values')
+#print(dataset['LotFrontage'].isnull()[:25])
+# num=[1,2,3,4,5,' ']
+# for x in dataset:
+#     if x.isnull():
+#         print('it has missing values')
 
-
-
-# for features in dataset:
+null_features=[]
+for features in dataset:
+    if dataset[features].isnull().sum()>0:
+        null_features.append(features)
     
+#print(dataset['LotFrontage'].isnull().sum())
+
+print(null_features)
