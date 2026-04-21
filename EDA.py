@@ -1,5 +1,6 @@
 import pandas as pd
 import numpy as np
+import matplotlib.pyplot as plt
 
 dataset=pd.read_csv("Dataset/train.csv")
 
@@ -42,3 +43,10 @@ for feature in dataset:
 print(categorical_value)
 print(len(categorical_value))
 
+for features in numerical_values:
+    data=dataset.copy()
+    data[features]=np.where(dataset[features].isnull(),1,0)
+
+    plt.bar(data[features],data['SalePrice'])
+    plt.title("SalesPrice Graph")
+    plt.show()
