@@ -43,10 +43,10 @@ for feature in dataset:
 print(categorical_value)
 print(len(categorical_value))
 
-for features in numerical_values:
+for feature in numerical_values:
     data=dataset.copy()
-    data[features]=np.where(dataset[features].isnull(),1,0)
+    data[feature]=np.where(data[feature].isnull(),1,0)
 
-    plt.bar(data[features],data['SalePrice'])
-    plt.title("SalesPrice Graph")
+    data.groupby(feature)['SalePrice'].median().plot.bar()
+    plt.title(feature)
     plt.show()
