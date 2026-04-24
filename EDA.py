@@ -25,6 +25,8 @@ for features in dataset:
 for features in null_features:
     print(np.round(dataset[features].isnull().mean(),3),'% missing values')
 
+print(len(null_features))
+
 numerical_values=[]
 
 for  feature in dataset:
